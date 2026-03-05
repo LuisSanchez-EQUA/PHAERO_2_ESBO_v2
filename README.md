@@ -1,4 +1,4 @@
-# VIKTOR Workflow Documentation
+# Workflow Documentation
 
 ## Layout
 
