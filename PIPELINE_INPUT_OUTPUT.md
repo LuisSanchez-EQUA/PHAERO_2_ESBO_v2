@@ -56,7 +56,7 @@ flowchart LR
     D[zone_data.csv] --> P
     P --> S[Normalized payload\ngeometry + schedules + HVAC params]
     S --> L[build_lisp_script]
-    L --> R[runIDAScript(building, script)]
+    L --> R[runIDAScript]
     R --> W[_scripts/<case>__update_script.txt\ncombined script snapshot]
 ```
 
