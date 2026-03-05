@@ -3,7 +3,7 @@
 ## Layout
 
 ```text
-VIKTOR/
+PHAERO2ESBO/
   data/                         # zone JSON inputs + reference CSVs
   Starting_Case/                # seed IDM models
   phase0/                       # model mutation + simulation + report export
