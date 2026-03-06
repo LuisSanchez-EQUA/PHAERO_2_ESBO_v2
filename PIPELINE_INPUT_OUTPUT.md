@@ -30,6 +30,12 @@ flowchart TD
     J --> K
 ```
 
+## Execution Contexts
+
+- CLI context: `run_phase0_and_ida_parallel.py` writes to `work_ice/`.
+- WebAPI context: `webapi/server.py` writes per-job artifacts to `web_jobs/<job_id>/work_ice/` and packaged outputs to `web_jobs/<job_id>/outputs/`.
+- The simulation core path is the same in both contexts (`phase0/workflows.py`).
+
 ## Input Contracts
 
 ### 1) WebApp JSON (`data/zones_*.json`)

@@ -1,10 +1,10 @@
 # WebApp Bridge Logic
 
-This document explains the new backend bridge that connects your WebApp JSON input with the existing Phase0 + IDA workflow.
+This document explains the backend bridge that connects a WebApp JSON payload to the existing Phase0 + IDA workflow.
 
-## What is NEW
+## What Is New
 
-- `webapi/server.py`: FastAPI server with 3 core endpoints.
+- `webapi/server.py`: FastAPI server with job endpoints.
 - `webapi/__init__.py`
 - `requirements.txt`: added `fastapi` and `uvicorn`.
 
@@ -50,10 +50,10 @@ sequenceDiagram
 
 ## Endpoints
 
-- `GET /health`
-- `POST /jobs`
-- `GET /jobs/{job_id}`
-- `GET /jobs/{job_id}/results`
+- `GET /health`: liveness check.
+- `POST /jobs`: submit a simulation job.
+- `GET /jobs/{job_id}`: read current job status.
+- `GET /jobs/{job_id}/results`: get packaged results when completed.
 
 ### `POST /jobs` body
 
@@ -93,7 +93,7 @@ web_jobs/
       *.ROOM-VIEW.png
 ```
 
-## How to Run
+## How To Run
 
 1. Install dependencies:
    - `pip install -r requirements.txt`
@@ -106,6 +106,16 @@ web_jobs/
 
 ## Important Notes
 
-- `max_workers=1` is intentional in `JobManager` to avoid IDA session/license conflicts. (TESTING?)
+- `max_workers=1` is intentional in `JobManager` to avoid IDA session/license conflicts.
+- API mode writes outputs to `web_jobs/<job_id>/...` instead of `work_ice/...`.
+- If needed, you can still run the existing CLI workflow in parallel as a separate process model.
 - This is a first integration layer; security/auth and production hardening should be added before external deployment.
+
+## Recommended Next Hardening Steps
+
+1. Add API key or token-based authentication.
+2. Add strict JSON schema validation for `zones`.
+3. Add request size limits and per-user rate limiting.
+4. Add persistent job store (SQLite/Postgres) if jobs must survive restarts.
+5. Add structured logging and centralized error tracking.
 
