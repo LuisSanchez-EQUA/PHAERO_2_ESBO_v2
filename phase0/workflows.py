@@ -212,10 +212,8 @@ def run_create_zones_single_case(
         # DEBUG: Log entry point
         print(f"[PHASE0-JOB] Starting for JSON={zones_json_path.name} -> {case_output_dir}")
         
-        # Load zone config from JSON
-        with open(zones_json_path, "r", encoding="utf-8") as f:
-            import json
-            zones = json.load(f)
+        # Load zone config from JSON (supports compact v2 and legacy list format).
+        zones = load_zones_from_json(zones_json_path)
         
         if not zones:
             raise ValueError("No zones found in JSON")
