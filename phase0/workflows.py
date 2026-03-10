@@ -280,6 +280,9 @@ def run_create_zones_single_case(
                                 f"Results dir: {results_dir}"
                             )
                             run_simulation(building, sim_type)
+                            # Save after each simulation run so IDA has an explicit flush point
+                            # before result collection and PRN existence checks.
+                            save_model(building, model_output_path, mode=1)
                             json_name = f"{case_name}_{sim_type.lower()}_results.json"
                             excel_name = f"{case_name}_{sim_type.lower()}_results.xlsx"
                             get_results(
@@ -339,6 +342,9 @@ def run_create_zones_single_case(
                                 )
                     if not sim_success:
                         raise RuntimeError(f"{sim_type} failed after retry: {last_error}")
+
+                print(f"[PHASE0-JOB] [SIMULATION PIPELINE] Saving model after all simulations to {model_output_path}...")
+                save_model(building, model_output_path, mode=1)
 
                 # Remove per-simulation intermediate IDM files produced by IDA.
                 case_sim_dir = case_output_dir / case_name

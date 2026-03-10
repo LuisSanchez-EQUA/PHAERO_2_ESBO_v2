@@ -1,0 +1,1345 @@
+[
+  {
+    "@id": "http://example.org/phaero#1_INTERNAL_ONLY_WALL_3_SUBPART",
+    "https://example.com/bem#internalFraction": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 1.0
+      }
+    ],
+    "https://example.com/bem#side": [
+      {
+        "@value": "left"
+      }
+    ]
+  },
+  {
+    "@id": "http://example.org/phaero#1_EAST_WINDOW_SYSTEM",
+    "@type": [
+      "https://example.com/bem#WindowSystem"
+    ],
+    "https://example.com/bem#frameArea": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 23.0
+      }
+    ],
+    "https://example.com/bem#frameUValue": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 1.0
+      }
+    ],
+    "https://example.com/bem#glazingType": [
+      {
+        "@value": "Double Clear Air 2-panes"
+      }
+    ],
+    "https://example.com/bem#shadingType": [
+      {
+        "@value": "OUTSIDE-BLIND"
+      }
+    ]
+  },
+  {
+    "@id": "http://example.org/phaero#1_WEST_WALL_1",
+    "@type": [
+      "https://brickschema.org/schema/Brick#Wall"
+    ],
+    "https://example.com/bem#externalConstruction": [
+      {
+        "@value": "AW_BE_MW"
+      }
+    ],
+    "https://example.com/bem#hasSubpart": [
+      {
+        "@id": "http://example.org/phaero#1_WEST_WALL_1_SUBPART"
+      }
+    ],
+    "https://example.com/bem#internalConstruction": [
+      {
+        "@value": "IW_TB"
+      }
+    ],
+    "https://example.com/bem#wwr": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 0.0
+      }
+    ]
+  },
+  {
+    "@id": "http://example.org/phaero#1_EAST_WALL_1",
+    "@type": [
+      "https://brickschema.org/schema/Brick#Wall"
+    ],
+    "https://example.com/bem#externalConstruction": [
+      {
+        "@value": "AW_BE_MW"
+      }
+    ],
+    "https://example.com/bem#hasSubpart": [
+      {
+        "@id": "http://example.org/phaero#1_EAST_WALL_1_SUBPART"
+      }
+    ],
+    "https://example.com/bem#internalConstruction": [
+      {
+        "@value": "IW_TB"
+      }
+    ],
+    "https://example.com/bem#wwr": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 0.0
+      }
+    ]
+  },
+  {
+    "@id": "http://example.org/phaero#1_NORTH_WALL_2_SUBPART",
+    "https://example.com/bem#internalFraction": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 0.5
+      }
+    ],
+    "https://example.com/bem#side": [
+      {
+        "@value": "left"
+      }
+    ]
+  },
+  {
+    "@id": "http://example.org/phaero#1_INTERNAL_ONLY_WALL_3",
+    "@type": [
+      "https://brickschema.org/schema/Brick#Wall"
+    ],
+    "https://example.com/bem#externalConstruction": [
+      {
+        "@value": "AW_BE_MW"
+      }
+    ],
+    "https://example.com/bem#hasSubpart": [
+      {
+        "@id": "http://example.org/phaero#1_INTERNAL_ONLY_WALL_3_SUBPART"
+      }
+    ],
+    "https://example.com/bem#internalConstruction": [
+      {
+        "@value": "IW_TB"
+      }
+    ],
+    "https://example.com/bem#wwr": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 0.0
+      }
+    ]
+  },
+  {
+    "@id": "http://example.org/phaero#1_INTERNAL_ONLY_WALL_1",
+    "@type": [
+      "https://brickschema.org/schema/Brick#Wall"
+    ],
+    "https://example.com/bem#externalConstruction": [
+      {
+        "@value": "AW_BE_MW"
+      }
+    ],
+    "https://example.com/bem#hasSubpart": [
+      {
+        "@id": "http://example.org/phaero#1_INTERNAL_ONLY_WALL_1_SUBPART"
+      }
+    ],
+    "https://example.com/bem#internalConstruction": [
+      {
+        "@value": "IW_TB"
+      }
+    ],
+    "https://example.com/bem#wwr": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 0.0
+      }
+    ]
+  },
+  {
+    "@id": "http://example.org/phaero#1_INTERNAL_ONLY_WALL_4_SUBPART",
+    "https://example.com/bem#internalFraction": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 1.0
+      }
+    ],
+    "https://example.com/bem#side": [
+      {
+        "@value": "left"
+      }
+    ]
+  },
+  {
+    "@id": "http://example.org/phaero#1_WEST_WALL_4_WINDOW",
+    "@type": [
+      "https://example.com/bem#Window"
+    ],
+    "https://example.com/bem#WWR": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 0.2
+      }
+    ],
+    "https://example.com/bem#usesWindowSystem": [
+      {
+        "@id": "http://example.org/phaero#1_WEST_WINDOW_SYSTEM"
+      }
+    ]
+  },
+  {
+    "@id": "http://example.org/phaero#1_SOUTH_WALL_2_WINDOW",
+    "@type": [
+      "https://example.com/bem#Window"
+    ],
+    "https://example.com/bem#WWR": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 0.4
+      }
+    ],
+    "https://example.com/bem#usesWindowSystem": [
+      {
+        "@id": "http://example.org/phaero#1_SOUTH_WINDOW_SYSTEM"
+      }
+    ]
+  },
+  {
+    "@id": "http://example.org/phaero#1_SOUTH_WALL_2_SUBPART",
+    "https://example.com/bem#internalFraction": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 0.5
+      }
+    ],
+    "https://example.com/bem#side": [
+      {
+        "@value": "left"
+      }
+    ]
+  },
+  {
+    "@id": "http://example.org/phaero#1_NORTH_WALL_4_SUBPART",
+    "https://example.com/bem#internalFraction": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 0.5
+      }
+    ],
+    "https://example.com/bem#side": [
+      {
+        "@value": "left"
+      }
+    ]
+  },
+  {
+    "@id": "http://example.org/phaero#1_INTERNAL_ONLY_WALL_2",
+    "@type": [
+      "https://brickschema.org/schema/Brick#Wall"
+    ],
+    "https://example.com/bem#externalConstruction": [
+      {
+        "@value": "AW_BE_MW"
+      }
+    ],
+    "https://example.com/bem#hasSubpart": [
+      {
+        "@id": "http://example.org/phaero#1_INTERNAL_ONLY_WALL_2_SUBPART"
+      }
+    ],
+    "https://example.com/bem#internalConstruction": [
+      {
+        "@value": "IW_TB"
+      }
+    ],
+    "https://example.com/bem#wwr": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 0.0
+      }
+    ]
+  },
+  {
+    "@id": "http://example.org/phaero#1_EAST_WALL_4_SUBPART",
+    "https://example.com/bem#internalFraction": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 0.5
+      }
+    ],
+    "https://example.com/bem#side": [
+      {
+        "@value": "left"
+      }
+    ]
+  },
+  {
+    "@id": "http://example.org/phaero#1_WEST_WALL_3_SUBPART",
+    "https://example.com/bem#internalFraction": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 0.5
+      }
+    ],
+    "https://example.com/bem#side": [
+      {
+        "@value": "left"
+      }
+    ]
+  },
+  {
+    "@id": "http://example.org/phaero#1_EAST_WALL_3_SUBPART",
+    "https://example.com/bem#internalFraction": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 0.5
+      }
+    ],
+    "https://example.com/bem#side": [
+      {
+        "@value": "left"
+      }
+    ]
+  },
+  {
+    "@id": "http://example.org/phaero#1_WEST_WALL_4",
+    "@type": [
+      "https://brickschema.org/schema/Brick#Wall"
+    ],
+    "https://example.com/bem#externalConstruction": [
+      {
+        "@value": "AW_BE_MW"
+      }
+    ],
+    "https://example.com/bem#hasOpening": [
+      {
+        "@id": "http://example.org/phaero#1_WEST_WALL_4_WINDOW"
+      }
+    ],
+    "https://example.com/bem#hasSubpart": [
+      {
+        "@id": "http://example.org/phaero#1_WEST_WALL_4_SUBPART"
+      }
+    ],
+    "https://example.com/bem#internalConstruction": [
+      {
+        "@value": "IW_TB"
+      }
+    ],
+    "https://example.com/bem#wwr": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 0.2
+      }
+    ]
+  },
+  {
+    "@id": "http://example.org/phaero#1_NORTH_WALL_2",
+    "@type": [
+      "https://brickschema.org/schema/Brick#Wall"
+    ],
+    "https://example.com/bem#externalConstruction": [
+      {
+        "@value": "AW_BE_MW"
+      }
+    ],
+    "https://example.com/bem#hasSubpart": [
+      {
+        "@id": "http://example.org/phaero#1_NORTH_WALL_2_SUBPART"
+      }
+    ],
+    "https://example.com/bem#internalConstruction": [
+      {
+        "@value": "IW_TB"
+      }
+    ],
+    "https://example.com/bem#wwr": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 0.0
+      }
+    ]
+  },
+  {
+    "@id": "http://example.org/phaero#1_SOUTH_WALL_3_SUBPART",
+    "https://example.com/bem#internalFraction": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 0.5
+      }
+    ],
+    "https://example.com/bem#side": [
+      {
+        "@value": "left"
+      }
+    ]
+  },
+  {
+    "@id": "http://example.org/phaero#1_INTERNAL_ONLY",
+    "@type": [
+      "https://brickschema.org/schema/Brick#Room"
+    ],
+    "https://example.com/bem#hasSurface": [
+      {
+        "@id": "http://example.org/phaero#1_INTERNAL_ONLY_WALL_1"
+      },
+      {
+        "@id": "http://example.org/phaero#1_INTERNAL_ONLY_WALL_2"
+      },
+      {
+        "@id": "http://example.org/phaero#1_INTERNAL_ONLY_WALL_3"
+      },
+      {
+        "@id": "http://example.org/phaero#1_INTERNAL_ONLY_WALL_4"
+      }
+    ],
+    "https://example.com/bem#orientation": [
+      {
+        "@value": "ONLY"
+      }
+    ],
+    "https://example.com/bem#roomHeight": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 4.0
+      }
+    ],
+    "https://example.com/bem#roomLength": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 7.0
+      }
+    ],
+    "https://example.com/bem#roomWidth": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 7.0
+      }
+    ],
+    "https://example.com/bem#zoneMultiplier": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 2.0
+      }
+    ],
+    "https://example.com/bem#zoneName": [
+      {
+        "@value": "1_INTERNAL_ONLY"
+      }
+    ],
+    "https://example.com/bem#zoneType": [
+      {
+        "@value": "1"
+      }
+    ]
+  },
+  {
+    "@id": "http://example.org/phaero#1_WEST",
+    "@type": [
+      "https://brickschema.org/schema/Brick#Room"
+    ],
+    "https://example.com/bem#hasSurface": [
+      {
+        "@id": "http://example.org/phaero#1_WEST_WALL_1"
+      },
+      {
+        "@id": "http://example.org/phaero#1_WEST_WALL_2"
+      },
+      {
+        "@id": "http://example.org/phaero#1_WEST_WALL_3"
+      },
+      {
+        "@id": "http://example.org/phaero#1_WEST_WALL_4"
+      }
+    ],
+    "https://example.com/bem#orientation": [
+      {
+        "@value": "WEST"
+      }
+    ],
+    "https://example.com/bem#roomHeight": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 4.0
+      }
+    ],
+    "https://example.com/bem#roomLength": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 7.0
+      }
+    ],
+    "https://example.com/bem#roomWidth": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 7.0
+      }
+    ],
+    "https://example.com/bem#zoneMultiplier": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 2.0
+      }
+    ],
+    "https://example.com/bem#zoneName": [
+      {
+        "@value": "1_WEST"
+      }
+    ],
+    "https://example.com/bem#zoneType": [
+      {
+        "@value": "1"
+      }
+    ]
+  },
+  {
+    "@id": "http://example.org/phaero#1_NORTH_WINDOW_SYSTEM",
+    "@type": [
+      "https://example.com/bem#WindowSystem"
+    ],
+    "https://example.com/bem#frameArea": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 23.0
+      }
+    ],
+    "https://example.com/bem#frameUValue": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 1.0
+      }
+    ],
+    "https://example.com/bem#glazingType": [
+      {
+        "@value": "Double Clear Air 2-panes"
+      }
+    ],
+    "https://example.com/bem#shadingType": [
+      {
+        "@value": "OUTSIDE-BLIND"
+      }
+    ]
+  },
+  {
+    "@id": "http://example.org/phaero#1_EAST_WALL_2",
+    "@type": [
+      "https://brickschema.org/schema/Brick#Wall"
+    ],
+    "https://example.com/bem#externalConstruction": [
+      {
+        "@value": "AW_BE_MW"
+      }
+    ],
+    "https://example.com/bem#hasSubpart": [
+      {
+        "@id": "http://example.org/phaero#1_EAST_WALL_2_SUBPART"
+      }
+    ],
+    "https://example.com/bem#internalConstruction": [
+      {
+        "@value": "IW_TB"
+      }
+    ],
+    "https://example.com/bem#wwr": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 0.0
+      }
+    ]
+  },
+  {
+    "@id": "http://example.org/phaero#1_WEST_WALL_4_SUBPART",
+    "https://example.com/bem#internalFraction": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 0.5
+      }
+    ],
+    "https://example.com/bem#side": [
+      {
+        "@value": "left"
+      }
+    ]
+  },
+  {
+    "@id": "http://example.org/phaero#1_NORTH_WALL_1_WINDOW",
+    "@type": [
+      "https://example.com/bem#Window"
+    ],
+    "https://example.com/bem#WWR": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 0.5
+      }
+    ],
+    "https://example.com/bem#usesWindowSystem": [
+      {
+        "@id": "http://example.org/phaero#1_NORTH_WINDOW_SYSTEM"
+      }
+    ]
+  },
+  {
+    "@id": "http://example.org/phaero#1_SOUTH_WALL_4",
+    "@type": [
+      "https://brickschema.org/schema/Brick#Wall"
+    ],
+    "https://example.com/bem#externalConstruction": [
+      {
+        "@value": "AW_BE_MW"
+      }
+    ],
+    "https://example.com/bem#hasSubpart": [
+      {
+        "@id": "http://example.org/phaero#1_SOUTH_WALL_4_SUBPART"
+      }
+    ],
+    "https://example.com/bem#internalConstruction": [
+      {
+        "@value": "IW_TB"
+      }
+    ],
+    "https://example.com/bem#wwr": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 0.0
+      }
+    ]
+  },
+  {
+    "@id": "http://example.org/phaero#1_SOUTH_WALL_3",
+    "@type": [
+      "https://brickschema.org/schema/Brick#Wall"
+    ],
+    "https://example.com/bem#externalConstruction": [
+      {
+        "@value": "AW_BE_MW"
+      }
+    ],
+    "https://example.com/bem#hasSubpart": [
+      {
+        "@id": "http://example.org/phaero#1_SOUTH_WALL_3_SUBPART"
+      }
+    ],
+    "https://example.com/bem#internalConstruction": [
+      {
+        "@value": "IW_TB"
+      }
+    ],
+    "https://example.com/bem#wwr": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 0.0
+      }
+    ]
+  },
+  {
+    "@id": "http://example.org/phaero#1_SOUTH",
+    "@type": [
+      "https://brickschema.org/schema/Brick#Room"
+    ],
+    "https://example.com/bem#hasSurface": [
+      {
+        "@id": "http://example.org/phaero#1_SOUTH_WALL_1"
+      },
+      {
+        "@id": "http://example.org/phaero#1_SOUTH_WALL_2"
+      },
+      {
+        "@id": "http://example.org/phaero#1_SOUTH_WALL_3"
+      },
+      {
+        "@id": "http://example.org/phaero#1_SOUTH_WALL_4"
+      }
+    ],
+    "https://example.com/bem#orientation": [
+      {
+        "@value": "SOUTH"
+      }
+    ],
+    "https://example.com/bem#roomHeight": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 4.0
+      }
+    ],
+    "https://example.com/bem#roomLength": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 7.0
+      }
+    ],
+    "https://example.com/bem#roomWidth": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 7.0
+      }
+    ],
+    "https://example.com/bem#zoneMultiplier": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 2.0
+      }
+    ],
+    "https://example.com/bem#zoneName": [
+      {
+        "@value": "1_SOUTH"
+      }
+    ],
+    "https://example.com/bem#zoneType": [
+      {
+        "@value": "1"
+      }
+    ]
+  },
+  {
+    "@id": "http://example.org/phaero#1_EAST_WALL_1_SUBPART",
+    "https://example.com/bem#internalFraction": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 0.5
+      }
+    ],
+    "https://example.com/bem#side": [
+      {
+        "@value": "left"
+      }
+    ]
+  },
+  {
+    "@id": "http://example.org/phaero#1_WEST_WINDOW_SYSTEM",
+    "@type": [
+      "https://example.com/bem#WindowSystem"
+    ],
+    "https://example.com/bem#frameArea": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 23.0
+      }
+    ],
+    "https://example.com/bem#frameUValue": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 1.0
+      }
+    ],
+    "https://example.com/bem#glazingType": [
+      {
+        "@value": "Double Clear Air 2-panes"
+      }
+    ],
+    "https://example.com/bem#shadingType": [
+      {
+        "@value": "OUTSIDE-BLIND"
+      }
+    ]
+  },
+  {
+    "@id": "http://example.org/phaero#1_SOUTH_WALL_1",
+    "@type": [
+      "https://brickschema.org/schema/Brick#Wall"
+    ],
+    "https://example.com/bem#externalConstruction": [
+      {
+        "@value": "AW_BE_MW"
+      }
+    ],
+    "https://example.com/bem#hasSubpart": [
+      {
+        "@id": "http://example.org/phaero#1_SOUTH_WALL_1_SUBPART"
+      }
+    ],
+    "https://example.com/bem#internalConstruction": [
+      {
+        "@value": "IW_TB"
+      }
+    ],
+    "https://example.com/bem#wwr": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 0.0
+      }
+    ]
+  },
+  {
+    "@id": "http://example.org/phaero#1_WEST_WALL_2_SUBPART",
+    "https://example.com/bem#internalFraction": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 0.5
+      }
+    ],
+    "https://example.com/bem#side": [
+      {
+        "@value": "left"
+      }
+    ]
+  },
+  {
+    "@id": "http://example.org/phaero#1_SOUTH_WALL_4_SUBPART",
+    "https://example.com/bem#internalFraction": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 0.5
+      }
+    ],
+    "https://example.com/bem#side": [
+      {
+        "@value": "left"
+      }
+    ]
+  },
+  {
+    "@id": "http://example.org/phaero#1_NORTH_WALL_1_SUBPART",
+    "https://example.com/bem#internalFraction": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 0.5
+      }
+    ],
+    "https://example.com/bem#side": [
+      {
+        "@value": "left"
+      }
+    ]
+  },
+  {
+    "@id": "http://example.org/phaero#1_WEST_WALL_2",
+    "@type": [
+      "https://brickschema.org/schema/Brick#Wall"
+    ],
+    "https://example.com/bem#externalConstruction": [
+      {
+        "@value": "AW_BE_MW"
+      }
+    ],
+    "https://example.com/bem#hasSubpart": [
+      {
+        "@id": "http://example.org/phaero#1_WEST_WALL_2_SUBPART"
+      }
+    ],
+    "https://example.com/bem#internalConstruction": [
+      {
+        "@value": "IW_TB"
+      }
+    ],
+    "https://example.com/bem#wwr": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 0.0
+      }
+    ]
+  },
+  {
+    "@id": "http://example.org/phaero#1_EAST_WALL_4",
+    "@type": [
+      "https://brickschema.org/schema/Brick#Wall"
+    ],
+    "https://example.com/bem#externalConstruction": [
+      {
+        "@value": "AW_BE_MW"
+      }
+    ],
+    "https://example.com/bem#hasSubpart": [
+      {
+        "@id": "http://example.org/phaero#1_EAST_WALL_4_SUBPART"
+      }
+    ],
+    "https://example.com/bem#internalConstruction": [
+      {
+        "@value": "IW_TB"
+      }
+    ],
+    "https://example.com/bem#wwr": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 0.0
+      }
+    ]
+  },
+  {
+    "@id": "http://example.org/phaero#1_INTERNAL_ONLY_WALL_4",
+    "@type": [
+      "https://brickschema.org/schema/Brick#Wall"
+    ],
+    "https://example.com/bem#externalConstruction": [
+      {
+        "@value": "AW_BE_MW"
+      }
+    ],
+    "https://example.com/bem#hasSubpart": [
+      {
+        "@id": "http://example.org/phaero#1_INTERNAL_ONLY_WALL_4_SUBPART"
+      }
+    ],
+    "https://example.com/bem#internalConstruction": [
+      {
+        "@value": "IW_TB"
+      }
+    ],
+    "https://example.com/bem#wwr": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 0.0
+      }
+    ]
+  },
+  {
+    "@id": "http://example.org/phaero#1_SOUTH_WALL_1_SUBPART",
+    "https://example.com/bem#internalFraction": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 0.5
+      }
+    ],
+    "https://example.com/bem#side": [
+      {
+        "@value": "left"
+      }
+    ]
+  },
+  {
+    "@id": "http://example.org/phaero#1_INTERNAL_ONLY_WALL_2_SUBPART",
+    "https://example.com/bem#internalFraction": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 1.0
+      }
+    ],
+    "https://example.com/bem#side": [
+      {
+        "@value": "left"
+      }
+    ]
+  },
+  {
+    "@id": "http://example.org/phaero#1_INTERNAL_ONLY_WINDOW_SYSTEM",
+    "@type": [
+      "https://example.com/bem#WindowSystem"
+    ],
+    "https://example.com/bem#frameArea": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 23.0
+      }
+    ],
+    "https://example.com/bem#frameUValue": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 1.0
+      }
+    ],
+    "https://example.com/bem#glazingType": [
+      {
+        "@value": "Double Clear Air 2-panes"
+      }
+    ],
+    "https://example.com/bem#shadingType": [
+      {
+        "@value": "OUTSIDE-BLIND"
+      }
+    ]
+  },
+  {
+    "@id": "http://example.org/phaero#1_WEST_WALL_3",
+    "@type": [
+      "https://brickschema.org/schema/Brick#Wall"
+    ],
+    "https://example.com/bem#externalConstruction": [
+      {
+        "@value": "AW_BE_MW"
+      }
+    ],
+    "https://example.com/bem#hasSubpart": [
+      {
+        "@id": "http://example.org/phaero#1_WEST_WALL_3_SUBPART"
+      }
+    ],
+    "https://example.com/bem#internalConstruction": [
+      {
+        "@value": "IW_TB"
+      }
+    ],
+    "https://example.com/bem#wwr": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 0.0
+      }
+    ]
+  },
+  {
+    "@id": "http://example.org/phaero#1_SOUTH_WALL_2",
+    "@type": [
+      "https://brickschema.org/schema/Brick#Wall"
+    ],
+    "https://example.com/bem#externalConstruction": [
+      {
+        "@value": "AW_BE_MW"
+      }
+    ],
+    "https://example.com/bem#hasOpening": [
+      {
+        "@id": "http://example.org/phaero#1_SOUTH_WALL_2_WINDOW"
+      }
+    ],
+    "https://example.com/bem#hasSubpart": [
+      {
+        "@id": "http://example.org/phaero#1_SOUTH_WALL_2_SUBPART"
+      }
+    ],
+    "https://example.com/bem#internalConstruction": [
+      {
+        "@value": "IW_TB"
+      }
+    ],
+    "https://example.com/bem#wwr": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 0.4
+      }
+    ]
+  },
+  {
+    "@id": "http://example.org/phaero#1_EAST_WALL_2_SUBPART",
+    "https://example.com/bem#internalFraction": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 0.5
+      }
+    ],
+    "https://example.com/bem#side": [
+      {
+        "@value": "left"
+      }
+    ]
+  },
+  {
+    "@id": "http://example.org/phaero#1_NORTH_WALL_1",
+    "@type": [
+      "https://brickschema.org/schema/Brick#Wall"
+    ],
+    "https://example.com/bem#externalConstruction": [
+      {
+        "@value": "AW_BE_MW"
+      }
+    ],
+    "https://example.com/bem#hasOpening": [
+      {
+        "@id": "http://example.org/phaero#1_NORTH_WALL_1_WINDOW"
+      }
+    ],
+    "https://example.com/bem#hasSubpart": [
+      {
+        "@id": "http://example.org/phaero#1_NORTH_WALL_1_SUBPART"
+      }
+    ],
+    "https://example.com/bem#internalConstruction": [
+      {
+        "@value": "IW_TB"
+      }
+    ],
+    "https://example.com/bem#wwr": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 0.5
+      }
+    ]
+  },
+  {
+    "@id": "http://example.org/phaero#1_SOUTH_WINDOW_SYSTEM",
+    "@type": [
+      "https://example.com/bem#WindowSystem"
+    ],
+    "https://example.com/bem#frameArea": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 23.0
+      }
+    ],
+    "https://example.com/bem#frameUValue": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 1.0
+      }
+    ],
+    "https://example.com/bem#glazingType": [
+      {
+        "@value": "Double Clear Air 2-panes"
+      }
+    ],
+    "https://example.com/bem#shadingType": [
+      {
+        "@value": "OUTSIDE-BLIND"
+      }
+    ]
+  },
+  {
+    "@id": "http://example.org/phaero#1_NORTH",
+    "@type": [
+      "https://brickschema.org/schema/Brick#Room"
+    ],
+    "https://example.com/bem#hasSurface": [
+      {
+        "@id": "http://example.org/phaero#1_NORTH_WALL_1"
+      },
+      {
+        "@id": "http://example.org/phaero#1_NORTH_WALL_2"
+      },
+      {
+        "@id": "http://example.org/phaero#1_NORTH_WALL_3"
+      },
+      {
+        "@id": "http://example.org/phaero#1_NORTH_WALL_4"
+      }
+    ],
+    "https://example.com/bem#orientation": [
+      {
+        "@value": "NORTH"
+      }
+    ],
+    "https://example.com/bem#roomHeight": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 4.0
+      }
+    ],
+    "https://example.com/bem#roomLength": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 7.0
+      }
+    ],
+    "https://example.com/bem#roomWidth": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 7.0
+      }
+    ],
+    "https://example.com/bem#zoneMultiplier": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 2.0
+      }
+    ],
+    "https://example.com/bem#zoneName": [
+      {
+        "@value": "1_NORTH"
+      }
+    ],
+    "https://example.com/bem#zoneType": [
+      {
+        "@value": "1"
+      }
+    ]
+  },
+  {
+    "@id": "http://example.org/phaero#1_NORTH_WALL_3",
+    "@type": [
+      "https://brickschema.org/schema/Brick#Wall"
+    ],
+    "https://example.com/bem#externalConstruction": [
+      {
+        "@value": "AW_BE_MW"
+      }
+    ],
+    "https://example.com/bem#hasSubpart": [
+      {
+        "@id": "http://example.org/phaero#1_NORTH_WALL_3_SUBPART"
+      }
+    ],
+    "https://example.com/bem#internalConstruction": [
+      {
+        "@value": "IW_TB"
+      }
+    ],
+    "https://example.com/bem#wwr": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 0.0
+      }
+    ]
+  },
+  {
+    "@id": "http://example.org/phaero#1_EAST",
+    "@type": [
+      "https://brickschema.org/schema/Brick#Room"
+    ],
+    "https://example.com/bem#hasSurface": [
+      {
+        "@id": "http://example.org/phaero#1_EAST_WALL_1"
+      },
+      {
+        "@id": "http://example.org/phaero#1_EAST_WALL_2"
+      },
+      {
+        "@id": "http://example.org/phaero#1_EAST_WALL_3"
+      },
+      {
+        "@id": "http://example.org/phaero#1_EAST_WALL_4"
+      }
+    ],
+    "https://example.com/bem#orientation": [
+      {
+        "@value": "EAST"
+      }
+    ],
+    "https://example.com/bem#roomHeight": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 4.0
+      }
+    ],
+    "https://example.com/bem#roomLength": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 7.0
+      }
+    ],
+    "https://example.com/bem#roomWidth": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 7.0
+      }
+    ],
+    "https://example.com/bem#zoneMultiplier": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 2.0
+      }
+    ],
+    "https://example.com/bem#zoneName": [
+      {
+        "@value": "1_EAST"
+      }
+    ],
+    "https://example.com/bem#zoneType": [
+      {
+        "@value": "1"
+      }
+    ]
+  },
+  {
+    "@id": "http://example.org/phaero#1_NORTH_WALL_4",
+    "@type": [
+      "https://brickschema.org/schema/Brick#Wall"
+    ],
+    "https://example.com/bem#externalConstruction": [
+      {
+        "@value": "AW_BE_MW"
+      }
+    ],
+    "https://example.com/bem#hasSubpart": [
+      {
+        "@id": "http://example.org/phaero#1_NORTH_WALL_4_SUBPART"
+      }
+    ],
+    "https://example.com/bem#internalConstruction": [
+      {
+        "@value": "IW_TB"
+      }
+    ],
+    "https://example.com/bem#wwr": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 0.0
+      }
+    ]
+  },
+  {
+    "@id": "http://example.org/phaero#1_EAST_WALL_3_WINDOW",
+    "@type": [
+      "https://example.com/bem#Window"
+    ],
+    "https://example.com/bem#WWR": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 0.3
+      }
+    ],
+    "https://example.com/bem#usesWindowSystem": [
+      {
+        "@id": "http://example.org/phaero#1_EAST_WINDOW_SYSTEM"
+      }
+    ]
+  },
+  {
+    "@id": "http://example.org/phaero#1_EAST_WALL_3",
+    "@type": [
+      "https://brickschema.org/schema/Brick#Wall"
+    ],
+    "https://example.com/bem#externalConstruction": [
+      {
+        "@value": "AW_BE_MW"
+      }
+    ],
+    "https://example.com/bem#hasOpening": [
+      {
+        "@id": "http://example.org/phaero#1_EAST_WALL_3_WINDOW"
+      }
+    ],
+    "https://example.com/bem#hasSubpart": [
+      {
+        "@id": "http://example.org/phaero#1_EAST_WALL_3_SUBPART"
+      }
+    ],
+    "https://example.com/bem#internalConstruction": [
+      {
+        "@value": "IW_TB"
+      }
+    ],
+    "https://example.com/bem#wwr": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 0.3
+      }
+    ]
+  },
+  {
+    "@id": "http://example.org/phaero#1_NORTH_WALL_3_SUBPART",
+    "https://example.com/bem#internalFraction": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 0.5
+      }
+    ],
+    "https://example.com/bem#side": [
+      {
+        "@value": "left"
+      }
+    ]
+  },
+  {
+    "@id": "http://example.org/phaero#1_INTERNAL_ONLY_WALL_1_SUBPART",
+    "https://example.com/bem#internalFraction": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 1.0
+      }
+    ],
+    "https://example.com/bem#side": [
+      {
+        "@value": "left"
+      }
+    ]
+  },
+  {
+    "@id": "http://example.org/phaero#1_WEST_WALL_1_SUBPART",
+    "https://example.com/bem#internalFraction": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 0.5
+      }
+    ],
+    "https://example.com/bem#side": [
+      {
+        "@value": "left"
+      }
+    ]
+  }
+]

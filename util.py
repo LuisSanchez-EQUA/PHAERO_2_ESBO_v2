@@ -18,111 +18,118 @@ import os
 from phase0.paths import IDA_ICE_BIN
 
 path_to_ice = str(IDA_ICE_BIN) + "\\"
+process = None
+pid = None
+ida_lib = None
 
 
-# Start ida minimized to avoid user confusion when executing the script :D
-command = path_to_ice + "ida-ice.exe \"" + path_to_ice + "ida.img\" -G 1"
+def _configure_ida_lib() -> None:
+    global ida_lib
+    ida_lib.connect_to_ida.restype = ctypes.c_bool
+    ida_lib.connect_to_ida.argtypes = [ctypes.c_char_p, ctypes.c_char_p]
+    ida_lib.switch_remote_connection.restype = ctypes.c_bool
+    ida_lib.switch_remote_connection.argtypes = [ctypes.c_char_p]
+    ida_lib.switch_api_version.restype = ctypes.c_bool
+    ida_lib.switch_api_version.argtypes = [ctypes.c_long]
+    ida_lib.call_ida_function.restype = ctypes.c_long
+    ida_lib.call_ida_function.argtypes = [ctypes.c_char_p, ctypes.c_char_p, ctypes.c_char_p, ctypes.c_int]
+    ida_lib.ida_disconnect.restype = ctypes.c_bool
+    ida_lib.ida_disconnect.argtypes = []
+    ida_lib.get_err.restype = ctypes.c_long
+    ida_lib.get_err.argtypes = [ctypes.c_char_p, ctypes.c_int]
+    ida_lib.childNodes.restype = ctypes.c_long
+    ida_lib.childNodes.argtypes = [ctypes.c_long, ctypes.c_char_p, ctypes.c_int]
+    ida_lib.parentNode.restype = ctypes.c_long
+    ida_lib.parentNode.argtypes = [ctypes.c_long, ctypes.c_char_p, ctypes.c_int]
+    ida_lib.setParentNode.restype = ctypes.c_long
+    ida_lib.setParentNode.argtypes = [ctypes.c_long, ctypes.c_long, ctypes.c_char_p, ctypes.c_int]
+    ida_lib.hasChildNodes.restype = ctypes.c_long
+    ida_lib.hasChildNodes.argtypes = [ctypes.c_long, ctypes.c_char_p, ctypes.c_int]
+    ida_lib.firstChild.restype = ctypes.c_long
+    ida_lib.firstChild.argtypes = [ctypes.c_long, ctypes.c_char_p, ctypes.c_int]
+    ida_lib.lastChild.restype = ctypes.c_long
+    ida_lib.lastChild.argtypes = [ctypes.c_long, ctypes.c_char_p, ctypes.c_int]
+    ida_lib.nextSibling.restype = ctypes.c_long
+    ida_lib.nextSibling.argtypes = [ctypes.c_long, ctypes.c_char_p, ctypes.c_int]
+    ida_lib.previousSibling.restype = ctypes.c_long
+    ida_lib.previousSibling.argtypes = [ctypes.c_long, ctypes.c_char_p, ctypes.c_int]
+    ida_lib.childNodesLength.restype = ctypes.c_long
+    ida_lib.childNodesLength.argtypes = [ctypes.c_long, ctypes.c_char_p, ctypes.c_int]
+    ida_lib.setNodeValue.restype = ctypes.c_long
+    ida_lib.setNodeValue.argtypes = [ctypes.c_long, ctypes.c_char_p, ctypes.c_char_p, ctypes.c_int]
+    ida_lib.cloneNode.restype = ctypes.c_long
+    ida_lib.cloneNode.argtypes = [ctypes.c_long, ctypes.c_char_p, ctypes.c_int]
+    ida_lib.insertBefore.restype = ctypes.c_long
+    ida_lib.insertBefore.argtypes = [ctypes.c_long, ctypes.c_char_p, ctypes.c_char_p, ctypes.c_int]
+    ida_lib.createNode.restype = ctypes.c_long
+    ida_lib.createNode.argtypes = [ctypes.c_long, ctypes.c_char_p, ctypes.c_char_p, ctypes.c_int]
+    ida_lib.contains.restype = ctypes.c_long
+    ida_lib.contains.argtypes = [ctypes.c_long, ctypes.c_long, ctypes.c_char_p, ctypes.c_int]
+    ida_lib.domAncestor.restype = ctypes.c_long
+    ida_lib.domAncestor.argtypes = [ctypes.c_long, ctypes.c_long, ctypes.c_char_p, ctypes.c_int]
+    ida_lib.item.restype = ctypes.c_long
+    ida_lib.item.argtypes = [ctypes.c_long, ctypes.c_long, ctypes.c_char_p, ctypes.c_int]
+    ida_lib.appendChild.restype = ctypes.c_long
+    ida_lib.appendChild.argtypes = [ctypes.c_long, ctypes.c_long, ctypes.c_char_p, ctypes.c_int]
+    ida_lib.removeChild.restype = ctypes.c_long
+    ida_lib.removeChild.argtypes = [ctypes.c_long, ctypes.c_long, ctypes.c_char_p, ctypes.c_int]
+    ida_lib.replaceChild.restype = ctypes.c_long
+    ida_lib.replaceChild.argtypes = [ctypes.c_long, ctypes.c_long, ctypes.c_char_p, ctypes.c_int]
+    ida_lib.setAttribute.restype = ctypes.c_long
+    ida_lib.setAttribute.argtypes = [ctypes.c_char_p, ctypes.c_long, ctypes.c_char_p, ctypes.c_char_p, ctypes.c_int]
+    ida_lib.getAttribute.restype = ctypes.c_long
+    ida_lib.getAttribute.argtypes = [ctypes.c_char_p, ctypes.c_long, ctypes.c_char_p, ctypes.c_int]
+    ida_lib.openDocument.restype = ctypes.c_long
+    ida_lib.openDocument.argtypes = [ctypes.c_char_p, ctypes.c_char_p, ctypes.c_int]
+    ida_lib.openDocByTypeAndName.restype = ctypes.c_long
+    ida_lib.openDocByTypeAndName.argtypes = [ctypes.c_char_p, ctypes.c_char_p, ctypes.c_char_p, ctypes.c_int]
+    ida_lib.saveDocument.restype = ctypes.c_long
+    ida_lib.saveDocument.argtypes = [ctypes.c_long, ctypes.c_char_p, ctypes.c_long, ctypes.c_char_p, ctypes.c_int]
+    ida_lib.runSimulation.restype = ctypes.c_long
+    ida_lib.runSimulation.argtypes = [ctypes.c_long, ctypes.c_long, ctypes.c_char_p, ctypes.c_int]
+    ida_lib.pollForQueuedResults.restype = ctypes.c_long
+    ida_lib.pollForQueuedResults.argtypes = [ctypes.c_char_p, ctypes.c_int]
+    ida_lib.getZones.restype = ctypes.c_long
+    ida_lib.getZones.argtypes = [ctypes.c_long, ctypes.c_char_p, ctypes.c_int]
+    ida_lib.getWindows.restype = ctypes.c_long
+    ida_lib.getWindows.argtypes = [ctypes.c_long, ctypes.c_char_p, ctypes.c_int]
+    ida_lib.getChildrenOfType.restype = ctypes.c_long
+    ida_lib.getChildrenOfType.argtypes = [ctypes.c_long, ctypes.c_char_p, ctypes.c_char_p, ctypes.c_int]
+    ida_lib.findNamedChild.restype = ctypes.c_long
+    ida_lib.findNamedChild.argtypes = [ctypes.c_long, ctypes.c_char_p, ctypes.c_char_p, ctypes.c_int]
+    ida_lib.exitSession.restype = ctypes.c_long
+    ida_lib.exitSession.argtypes = [ctypes.c_char_p, ctypes.c_int]
+    ida_lib.getAllSubobjectsOfType.restype = ctypes.c_long
+    ida_lib.getAllSubobjectsOfType.argtypes = [ctypes.c_long, ctypes.c_char_p, ctypes.c_char_p, ctypes.c_int]
+    ida_lib.runIDAScript.restype = ctypes.c_long
+    ida_lib.runIDAScript.argtypes = [ctypes.c_long, ctypes.c_char_p, ctypes.c_char_p, ctypes.c_int]
+    ida_lib.copyObject.restype = ctypes.c_long
+    ida_lib.copyObject.argtypes = [ctypes.c_long, ctypes.c_char_p, ctypes.c_char_p, ctypes.c_int]
+    ida_lib.findObjectsByCriterium.restype = ctypes.c_long
+    ida_lib.findObjectsByCriterium.argtypes = [ctypes.c_long, ctypes.c_char_p, ctypes.c_char_p, ctypes.c_int]
+    ida_lib.findUseOfResource.restype = ctypes.c_long
+    ida_lib.findUseOfResource.argtypes = [ctypes.c_long, ctypes.c_char_p, ctypes.c_int]
+    ida_lib.printReport.restype = ctypes.c_long
+    ida_lib.printReport.argtypes = [ctypes.c_long, ctypes.c_char_p, ctypes.c_long, ctypes.c_char_p, ctypes.c_int]
 
-# Start the process
-process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
-# Get the Process ID
-pid = str(process.pid)
-print("Process ID:", pid, "\n")
+def _ensure_ida_runtime_started() -> None:
+    global process, pid, ida_lib
+    if ida_lib is not None and process is not None and process.poll() is None:
+        return
 
-time.sleep(5)
+    command = path_to_ice + "ida-ice.exe \"" + path_to_ice + "ida.img\" -G 1"
+    process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    pid = str(process.pid)
+    print("Process ID:", pid, "\n")
 
-# Add path_to_ice to PATH variable, is removed when program finishes
-os.environ['PATH'] = path_to_ice + os.pathsep + os.environ['PATH']
+    time.sleep(5)
 
-ida_lib = ctypes.CDLL(path_to_ice + 'x64\\idaapi2.dll')
+    if path_to_ice not in os.environ.get("PATH", ""):
+        os.environ["PATH"] = path_to_ice + os.pathsep + os.environ["PATH"]
 
-ida_lib.connect_to_ida.restype = ctypes.c_bool
-ida_lib.connect_to_ida.argtypes = [ctypes.c_char_p, ctypes.c_char_p]
-ida_lib.switch_remote_connection.restype = ctypes.c_bool
-ida_lib.switch_remote_connection.argtypes = [ctypes.c_char_p]
-ida_lib.switch_api_version.restype = ctypes.c_bool
-ida_lib.switch_api_version.argtypes = [ctypes.c_long]
-ida_lib.call_ida_function.restype = ctypes.c_long
-ida_lib.call_ida_function.argtypes = [ctypes.c_char_p, ctypes.c_char_p, ctypes.c_char_p, ctypes.c_int]
-ida_lib.ida_disconnect.restype = ctypes.c_bool
-ida_lib.ida_disconnect.argtypes = []
-ida_lib.get_err.restype = ctypes.c_long
-ida_lib.get_err.argtypes = [ctypes.c_char_p, ctypes.c_int]
-ida_lib.childNodes.restype = ctypes.c_long
-ida_lib.childNodes.argtypes = [ctypes.c_long, ctypes.c_char_p, ctypes.c_int]
-ida_lib.parentNode.restype = ctypes.c_long
-ida_lib.parentNode.argtypes = [ctypes.c_long, ctypes.c_char_p, ctypes.c_int]
-ida_lib.setParentNode.restype = ctypes.c_long
-ida_lib.setParentNode.argtypes = [ctypes.c_long, ctypes.c_long, ctypes.c_char_p, ctypes.c_int]
-ida_lib.hasChildNodes.restype = ctypes.c_long
-ida_lib.hasChildNodes.argtypes = [ctypes.c_long, ctypes.c_char_p, ctypes.c_int]
-ida_lib.firstChild.restype = ctypes.c_long
-ida_lib.firstChild.argtypes = [ctypes.c_long, ctypes.c_char_p, ctypes.c_int]
-ida_lib.lastChild.restype = ctypes.c_long
-ida_lib.lastChild.argtypes = [ctypes.c_long, ctypes.c_char_p, ctypes.c_int]
-ida_lib.nextSibling.restype = ctypes.c_long
-ida_lib.nextSibling.argtypes = [ctypes.c_long, ctypes.c_char_p, ctypes.c_int]
-ida_lib.previousSibling.restype = ctypes.c_long
-ida_lib.previousSibling.argtypes = [ctypes.c_long, ctypes.c_char_p, ctypes.c_int]
-ida_lib.childNodesLength.restype = ctypes.c_long
-ida_lib.childNodesLength.argtypes = [ctypes.c_long, ctypes.c_char_p, ctypes.c_int]
-ida_lib.setNodeValue.restype = ctypes.c_long
-ida_lib.setNodeValue.argtypes = [ctypes.c_long, ctypes.c_char_p, ctypes.c_char_p, ctypes.c_int]
-ida_lib.cloneNode.restype = ctypes.c_long
-ida_lib.cloneNode.argtypes = [ctypes.c_long, ctypes.c_char_p, ctypes.c_int]
-ida_lib.insertBefore.restype = ctypes.c_long
-ida_lib.insertBefore.argtypes = [ctypes.c_long, ctypes.c_char_p, ctypes.c_char_p, ctypes.c_int]
-ida_lib.createNode.restype = ctypes.c_long
-ida_lib.createNode.argtypes = [ctypes.c_long, ctypes.c_char_p, ctypes.c_char_p, ctypes.c_int]
-ida_lib.contains.restype = ctypes.c_long
-ida_lib.contains.argtypes = [ctypes.c_long, ctypes.c_long, ctypes.c_char_p, ctypes.c_int]
-ida_lib.domAncestor.restype = ctypes.c_long
-ida_lib.domAncestor.argtypes = [ctypes.c_long, ctypes.c_long, ctypes.c_char_p, ctypes.c_int]
-ida_lib.item.restype = ctypes.c_long
-ida_lib.item.argtypes = [ctypes.c_long, ctypes.c_long, ctypes.c_char_p, ctypes.c_int]
-ida_lib.appendChild.restype = ctypes.c_long
-ida_lib.appendChild.argtypes = [ctypes.c_long, ctypes.c_long, ctypes.c_char_p, ctypes.c_int]
-ida_lib.removeChild.restype = ctypes.c_long
-ida_lib.removeChild.argtypes = [ctypes.c_long, ctypes.c_long, ctypes.c_char_p, ctypes.c_int]
-ida_lib.replaceChild.restype = ctypes.c_long
-ida_lib.replaceChild.argtypes = [ctypes.c_long, ctypes.c_long, ctypes.c_char_p, ctypes.c_int]
-ida_lib.setAttribute.restype = ctypes.c_long
-ida_lib.setAttribute.argtypes = [ctypes.c_char_p, ctypes.c_long, ctypes.c_char_p, ctypes.c_char_p, ctypes.c_int]
-ida_lib.getAttribute.restype = ctypes.c_long
-ida_lib.getAttribute.argtypes = [ctypes.c_char_p, ctypes.c_long, ctypes.c_char_p, ctypes.c_int]
-ida_lib.openDocument.restype = ctypes.c_long
-ida_lib.openDocument.argtypes = [ctypes.c_char_p, ctypes.c_char_p, ctypes.c_int]
-ida_lib.openDocByTypeAndName.restype = ctypes.c_long
-ida_lib.openDocByTypeAndName.argtypes = [ctypes.c_char_p, ctypes.c_char_p, ctypes.c_char_p, ctypes.c_int]
-ida_lib.saveDocument.restype = ctypes.c_long
-ida_lib.saveDocument.argtypes = [ctypes.c_long, ctypes.c_char_p, ctypes.c_long, ctypes.c_char_p, ctypes.c_int]
-ida_lib.runSimulation.restype = ctypes.c_long
-ida_lib.runSimulation.argtypes = [ctypes.c_long, ctypes.c_long, ctypes.c_char_p, ctypes.c_int]
-ida_lib.pollForQueuedResults.restype = ctypes.c_long
-ida_lib.pollForQueuedResults.argtypes = [ctypes.c_char_p, ctypes.c_int]
-ida_lib.getZones.restype = ctypes.c_long
-ida_lib.getZones.argtypes = [ctypes.c_long, ctypes.c_char_p, ctypes.c_int]
-ida_lib.getWindows.restype = ctypes.c_long
-ida_lib.getWindows.argtypes = [ctypes.c_long, ctypes.c_char_p, ctypes.c_int]
-ida_lib.getChildrenOfType.restype = ctypes.c_long
-ida_lib.getChildrenOfType.argtypes = [ctypes.c_long, ctypes.c_char_p, ctypes.c_char_p, ctypes.c_int]
-ida_lib.findNamedChild.restype = ctypes.c_long
-ida_lib.findNamedChild.argtypes = [ctypes.c_long, ctypes.c_char_p, ctypes.c_char_p, ctypes.c_int]
-ida_lib.exitSession.restype = ctypes.c_long
-ida_lib.exitSession.argtypes = [ctypes.c_char_p, ctypes.c_int]
-ida_lib.getAllSubobjectsOfType.restype = ctypes.c_long
-ida_lib.getAllSubobjectsOfType.argtypes = [ctypes.c_long, ctypes.c_char_p, ctypes.c_char_p, ctypes.c_int]
-ida_lib.runIDAScript.restype = ctypes.c_long
-ida_lib.runIDAScript.argtypes = [ctypes.c_long, ctypes.c_char_p, ctypes.c_char_p, ctypes.c_int]
-ida_lib.copyObject.restype = ctypes.c_long
-ida_lib.copyObject.argtypes = [ctypes.c_long, ctypes.c_char_p, ctypes.c_char_p, ctypes.c_int]
-ida_lib.findObjectsByCriterium.restype = ctypes.c_long
-ida_lib.findObjectsByCriterium.argtypes = [ctypes.c_long, ctypes.c_char_p, ctypes.c_char_p, ctypes.c_int]
-ida_lib.findUseOfResource.restype = ctypes.c_long
-ida_lib.findUseOfResource.argtypes = [ctypes.c_long, ctypes.c_char_p, ctypes.c_int]
-ida_lib.printReport.restype = ctypes.c_long
-ida_lib.printReport.argtypes = [ctypes.c_long, ctypes.c_char_p, ctypes.c_long, ctypes.c_char_p, ctypes.c_int]
+    ida_lib = ctypes.CDLL(path_to_ice + "x64\\idaapi2.dll")
+    _configure_ida_lib()
 
 
 # Utility functions
@@ -142,6 +149,7 @@ ida_lib.printReport.argtypes = [ctypes.c_long, ctypes.c_char_p, ctypes.c_long, c
 #             return ""
 #     return poll_result2[1]['value']
 def ida_poll_results_queue(time_interval):
+    _ensure_ida_runtime_started()
     size = 5000
     doc_str = ctypes.create_string_buffer(size)
     poll_result = False
@@ -185,6 +193,7 @@ def call_ida_api_function(fun, *args):
     """
     Just send in the function name and its unique arguments (not out buffer and out buffer length)
     """
+    _ensure_ida_runtime_started()
     p = ctypes.create_string_buffer(5000)
     new_args = args + (p, len(p))
     res = fun(*new_args)
@@ -208,6 +217,7 @@ def call_ida_api_function_j(fun, *args):
     """
     Just send in the function name and its unique arguments (not out buffer and out buffer length)
     """
+    _ensure_ida_runtime_started()
 
     p = ctypes.create_string_buffer(5000)
     args = args + (p, len(p))
@@ -224,6 +234,7 @@ def call_ida_api_function_j(fun, *args):
 
 
 def ida_poll_results_queue_j(time_interval):
+    _ensure_ida_runtime_started()
     size = 5000
     doc_str = ctypes.create_string_buffer(size)
     poll_result = False
@@ -244,11 +255,14 @@ def ida_runSimulation(building, opt="1"):
 
 
 def ida_connect(port=b"5945"):
+    _ensure_ida_runtime_started()
     start = ida_lib.connect_to_ida(port, pid.encode())
     return start
 
 
 def ida_disconnect():
+    if ida_lib is None:
+        return True
     end = ida_lib.ida_disconnect()
     return end
 
@@ -259,7 +273,9 @@ def ida_exit_session():
 
 
 def ida_stop_process(timeout_sec: float = 5.0):
-    global process
+    global process, pid
+    if process is None:
+        return None
     try:
         if process.poll() is not None:
             return process.returncode
@@ -273,15 +289,21 @@ def ida_stop_process(timeout_sec: float = 5.0):
             return process.returncode
         except Exception:
             return None
+    finally:
+        if process is not None and process.poll() is not None:
+            process = None
+            pid = None
 
 
 def ida_open(file_path=""):
+    _ensure_ida_runtime_started()
     building = call_ida_api_function(ida_lib.openDocument, file_path.encode())
 
     return building
 
 
 def ida_save(building, result_path="", mode=1):
+    _ensure_ida_runtime_started()
     status = call_ida_api_function(ida_lib.saveDocument, building, result_path.encode(), mode)
 
     return status

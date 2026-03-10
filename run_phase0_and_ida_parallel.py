@@ -17,7 +17,8 @@ By default previous work_ice/ directory is removed before running.
 Use --keep-prev-results to preserve them.
 
 Example:
-  python run_phase0_and_ida_parallel.py --json-pattern "zones_*.json" --run-sims
+  python run_phase0_and_ida_parallel.py --json-pattern "zones_*.json"
+  python run_phase0_and_ida_parallel.py --json-pattern "zones_*.json" --no-run-sims
   python run_phase0_and_ida_parallel.py --json-pattern "zones_5_orientations*.json"
 """
 

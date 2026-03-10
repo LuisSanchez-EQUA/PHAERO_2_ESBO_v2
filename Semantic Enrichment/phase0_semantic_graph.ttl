@@ -1,0 +1,300 @@
+@prefix bem: <https://example.com/bem#> .
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix ex: <http://example.org/phaero#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:1_EAST a brick:Room ;
+    bem:hasSurface ex:1_EAST_WALL_1,
+        ex:1_EAST_WALL_2,
+        ex:1_EAST_WALL_3,
+        ex:1_EAST_WALL_4 ;
+    bem:orientation "EAST" ;
+    bem:roomHeight 4e+00 ;
+    bem:roomLength 7e+00 ;
+    bem:roomWidth 7e+00 ;
+    bem:zoneMultiplier 2e+00 ;
+    bem:zoneName "1_EAST" ;
+    bem:zoneType "1" .
+
+ex:1_INTERNAL_ONLY a brick:Room ;
+    bem:hasSurface ex:1_INTERNAL_ONLY_WALL_1,
+        ex:1_INTERNAL_ONLY_WALL_2,
+        ex:1_INTERNAL_ONLY_WALL_3,
+        ex:1_INTERNAL_ONLY_WALL_4 ;
+    bem:orientation "ONLY" ;
+    bem:roomHeight 4e+00 ;
+    bem:roomLength 7e+00 ;
+    bem:roomWidth 7e+00 ;
+    bem:zoneMultiplier 2e+00 ;
+    bem:zoneName "1_INTERNAL_ONLY" ;
+    bem:zoneType "1" .
+
+ex:1_INTERNAL_ONLY_WINDOW_SYSTEM a bem:WindowSystem ;
+    bem:frameArea 2.3e+01 ;
+    bem:frameUValue 1e+00 ;
+    bem:glazingType "Double Clear Air 2-panes" ;
+    bem:shadingType "OUTSIDE-BLIND" .
+
+ex:1_NORTH a brick:Room ;
+    bem:hasSurface ex:1_NORTH_WALL_1,
+        ex:1_NORTH_WALL_2,
+        ex:1_NORTH_WALL_3,
+        ex:1_NORTH_WALL_4 ;
+    bem:orientation "NORTH" ;
+    bem:roomHeight 4e+00 ;
+    bem:roomLength 7e+00 ;
+    bem:roomWidth 7e+00 ;
+    bem:zoneMultiplier 2e+00 ;
+    bem:zoneName "1_NORTH" ;
+    bem:zoneType "1" .
+
+ex:1_SOUTH a brick:Room ;
+    bem:hasSurface ex:1_SOUTH_WALL_1,
+        ex:1_SOUTH_WALL_2,
+        ex:1_SOUTH_WALL_3,
+        ex:1_SOUTH_WALL_4 ;
+    bem:orientation "SOUTH" ;
+    bem:roomHeight 4e+00 ;
+    bem:roomLength 7e+00 ;
+    bem:roomWidth 7e+00 ;
+    bem:zoneMultiplier 2e+00 ;
+    bem:zoneName "1_SOUTH" ;
+    bem:zoneType "1" .
+
+ex:1_WEST a brick:Room ;
+    bem:hasSurface ex:1_WEST_WALL_1,
+        ex:1_WEST_WALL_2,
+        ex:1_WEST_WALL_3,
+        ex:1_WEST_WALL_4 ;
+    bem:orientation "WEST" ;
+    bem:roomHeight 4e+00 ;
+    bem:roomLength 7e+00 ;
+    bem:roomWidth 7e+00 ;
+    bem:zoneMultiplier 2e+00 ;
+    bem:zoneName "1_WEST" ;
+    bem:zoneType "1" .
+
+ex:1_EAST_WALL_1 a brick:Wall ;
+    bem:externalConstruction "AW_BE_MW" ;
+    bem:hasSubpart ex:1_EAST_WALL_1_SUBPART ;
+    bem:internalConstruction "IW_TB" ;
+    bem:wwr 0e+00 .
+
+ex:1_EAST_WALL_1_SUBPART bem:internalFraction 5e-01 ;
+    bem:side "left" .
+
+ex:1_EAST_WALL_2 a brick:Wall ;
+    bem:externalConstruction "AW_BE_MW" ;
+    bem:hasSubpart ex:1_EAST_WALL_2_SUBPART ;
+    bem:internalConstruction "IW_TB" ;
+    bem:wwr 0e+00 .
+
+ex:1_EAST_WALL_2_SUBPART bem:internalFraction 5e-01 ;
+    bem:side "left" .
+
+ex:1_EAST_WALL_3 a brick:Wall ;
+    bem:externalConstruction "AW_BE_MW" ;
+    bem:hasOpening ex:1_EAST_WALL_3_WINDOW ;
+    bem:hasSubpart ex:1_EAST_WALL_3_SUBPART ;
+    bem:internalConstruction "IW_TB" ;
+    bem:wwr 3e-01 .
+
+ex:1_EAST_WALL_3_SUBPART bem:internalFraction 5e-01 ;
+    bem:side "left" .
+
+ex:1_EAST_WALL_3_WINDOW a bem:Window ;
+    bem:WWR 3e-01 ;
+    bem:usesWindowSystem ex:1_EAST_WINDOW_SYSTEM .
+
+ex:1_EAST_WALL_4 a brick:Wall ;
+    bem:externalConstruction "AW_BE_MW" ;
+    bem:hasSubpart ex:1_EAST_WALL_4_SUBPART ;
+    bem:internalConstruction "IW_TB" ;
+    bem:wwr 0e+00 .
+
+ex:1_EAST_WALL_4_SUBPART bem:internalFraction 5e-01 ;
+    bem:side "left" .
+
+ex:1_EAST_WINDOW_SYSTEM a bem:WindowSystem ;
+    bem:frameArea 2.3e+01 ;
+    bem:frameUValue 1e+00 ;
+    bem:glazingType "Double Clear Air 2-panes" ;
+    bem:shadingType "OUTSIDE-BLIND" .
+
+ex:1_INTERNAL_ONLY_WALL_1 a brick:Wall ;
+    bem:externalConstruction "AW_BE_MW" ;
+    bem:hasSubpart ex:1_INTERNAL_ONLY_WALL_1_SUBPART ;
+    bem:internalConstruction "IW_TB" ;
+    bem:wwr 0e+00 .
+
+ex:1_INTERNAL_ONLY_WALL_1_SUBPART bem:internalFraction 1e+00 ;
+    bem:side "left" .
+
+ex:1_INTERNAL_ONLY_WALL_2 a brick:Wall ;
+    bem:externalConstruction "AW_BE_MW" ;
+    bem:hasSubpart ex:1_INTERNAL_ONLY_WALL_2_SUBPART ;
+    bem:internalConstruction "IW_TB" ;
+    bem:wwr 0e+00 .
+
+ex:1_INTERNAL_ONLY_WALL_2_SUBPART bem:internalFraction 1e+00 ;
+    bem:side "left" .
+
+ex:1_INTERNAL_ONLY_WALL_3 a brick:Wall ;
+    bem:externalConstruction "AW_BE_MW" ;
+    bem:hasSubpart ex:1_INTERNAL_ONLY_WALL_3_SUBPART ;
+    bem:internalConstruction "IW_TB" ;
+    bem:wwr 0e+00 .
+
+ex:1_INTERNAL_ONLY_WALL_3_SUBPART bem:internalFraction 1e+00 ;
+    bem:side "left" .
+
+ex:1_INTERNAL_ONLY_WALL_4 a brick:Wall ;
+    bem:externalConstruction "AW_BE_MW" ;
+    bem:hasSubpart ex:1_INTERNAL_ONLY_WALL_4_SUBPART ;
+    bem:internalConstruction "IW_TB" ;
+    bem:wwr 0e+00 .
+
+ex:1_INTERNAL_ONLY_WALL_4_SUBPART bem:internalFraction 1e+00 ;
+    bem:side "left" .
+
+ex:1_NORTH_WALL_1 a brick:Wall ;
+    bem:externalConstruction "AW_BE_MW" ;
+    bem:hasOpening ex:1_NORTH_WALL_1_WINDOW ;
+    bem:hasSubpart ex:1_NORTH_WALL_1_SUBPART ;
+    bem:internalConstruction "IW_TB" ;
+    bem:wwr 5e-01 .
+
+ex:1_NORTH_WALL_1_SUBPART bem:internalFraction 5e-01 ;
+    bem:side "left" .
+
+ex:1_NORTH_WALL_1_WINDOW a bem:Window ;
+    bem:WWR 5e-01 ;
+    bem:usesWindowSystem ex:1_NORTH_WINDOW_SYSTEM .
+
+ex:1_NORTH_WALL_2 a brick:Wall ;
+    bem:externalConstruction "AW_BE_MW" ;
+    bem:hasSubpart ex:1_NORTH_WALL_2_SUBPART ;
+    bem:internalConstruction "IW_TB" ;
+    bem:wwr 0e+00 .
+
+ex:1_NORTH_WALL_2_SUBPART bem:internalFraction 5e-01 ;
+    bem:side "left" .
+
+ex:1_NORTH_WALL_3 a brick:Wall ;
+    bem:externalConstruction "AW_BE_MW" ;
+    bem:hasSubpart ex:1_NORTH_WALL_3_SUBPART ;
+    bem:internalConstruction "IW_TB" ;
+    bem:wwr 0e+00 .
+
+ex:1_NORTH_WALL_3_SUBPART bem:internalFraction 5e-01 ;
+    bem:side "left" .
+
+ex:1_NORTH_WALL_4 a brick:Wall ;
+    bem:externalConstruction "AW_BE_MW" ;
+    bem:hasSubpart ex:1_NORTH_WALL_4_SUBPART ;
+    bem:internalConstruction "IW_TB" ;
+    bem:wwr 0e+00 .
+
+ex:1_NORTH_WALL_4_SUBPART bem:internalFraction 5e-01 ;
+    bem:side "left" .
+
+ex:1_NORTH_WINDOW_SYSTEM a bem:WindowSystem ;
+    bem:frameArea 2.3e+01 ;
+    bem:frameUValue 1e+00 ;
+    bem:glazingType "Double Clear Air 2-panes" ;
+    bem:shadingType "OUTSIDE-BLIND" .
+
+ex:1_SOUTH_WALL_1 a brick:Wall ;
+    bem:externalConstruction "AW_BE_MW" ;
+    bem:hasSubpart ex:1_SOUTH_WALL_1_SUBPART ;
+    bem:internalConstruction "IW_TB" ;
+    bem:wwr 0e+00 .
+
+ex:1_SOUTH_WALL_1_SUBPART bem:internalFraction 5e-01 ;
+    bem:side "left" .
+
+ex:1_SOUTH_WALL_2 a brick:Wall ;
+    bem:externalConstruction "AW_BE_MW" ;
+    bem:hasOpening ex:1_SOUTH_WALL_2_WINDOW ;
+    bem:hasSubpart ex:1_SOUTH_WALL_2_SUBPART ;
+    bem:internalConstruction "IW_TB" ;
+    bem:wwr 4e-01 .
+
+ex:1_SOUTH_WALL_2_SUBPART bem:internalFraction 5e-01 ;
+    bem:side "left" .
+
+ex:1_SOUTH_WALL_2_WINDOW a bem:Window ;
+    bem:WWR 4e-01 ;
+    bem:usesWindowSystem ex:1_SOUTH_WINDOW_SYSTEM .
+
+ex:1_SOUTH_WALL_3 a brick:Wall ;
+    bem:externalConstruction "AW_BE_MW" ;
+    bem:hasSubpart ex:1_SOUTH_WALL_3_SUBPART ;
+    bem:internalConstruction "IW_TB" ;
+    bem:wwr 0e+00 .
+
+ex:1_SOUTH_WALL_3_SUBPART bem:internalFraction 5e-01 ;
+    bem:side "left" .
+
+ex:1_SOUTH_WALL_4 a brick:Wall ;
+    bem:externalConstruction "AW_BE_MW" ;
+    bem:hasSubpart ex:1_SOUTH_WALL_4_SUBPART ;
+    bem:internalConstruction "IW_TB" ;
+    bem:wwr 0e+00 .
+
+ex:1_SOUTH_WALL_4_SUBPART bem:internalFraction 5e-01 ;
+    bem:side "left" .
+
+ex:1_SOUTH_WINDOW_SYSTEM a bem:WindowSystem ;
+    bem:frameArea 2.3e+01 ;
+    bem:frameUValue 1e+00 ;
+    bem:glazingType "Double Clear Air 2-panes" ;
+    bem:shadingType "OUTSIDE-BLIND" .
+
+ex:1_WEST_WALL_1 a brick:Wall ;
+    bem:externalConstruction "AW_BE_MW" ;
+    bem:hasSubpart ex:1_WEST_WALL_1_SUBPART ;
+    bem:internalConstruction "IW_TB" ;
+    bem:wwr 0e+00 .
+
+ex:1_WEST_WALL_1_SUBPART bem:internalFraction 5e-01 ;
+    bem:side "left" .
+
+ex:1_WEST_WALL_2 a brick:Wall ;
+    bem:externalConstruction "AW_BE_MW" ;
+    bem:hasSubpart ex:1_WEST_WALL_2_SUBPART ;
+    bem:internalConstruction "IW_TB" ;
+    bem:wwr 0e+00 .
+
+ex:1_WEST_WALL_2_SUBPART bem:internalFraction 5e-01 ;
+    bem:side "left" .
+
+ex:1_WEST_WALL_3 a brick:Wall ;
+    bem:externalConstruction "AW_BE_MW" ;
+    bem:hasSubpart ex:1_WEST_WALL_3_SUBPART ;
+    bem:internalConstruction "IW_TB" ;
+    bem:wwr 0e+00 .
+
+ex:1_WEST_WALL_3_SUBPART bem:internalFraction 5e-01 ;
+    bem:side "left" .
+
+ex:1_WEST_WALL_4 a brick:Wall ;
+    bem:externalConstruction "AW_BE_MW" ;
+    bem:hasOpening ex:1_WEST_WALL_4_WINDOW ;
+    bem:hasSubpart ex:1_WEST_WALL_4_SUBPART ;
+    bem:internalConstruction "IW_TB" ;
+    bem:wwr 2e-01 .
+
+ex:1_WEST_WALL_4_SUBPART bem:internalFraction 5e-01 ;
+    bem:side "left" .
+
+ex:1_WEST_WALL_4_WINDOW a bem:Window ;
+    bem:WWR 2e-01 ;
+    bem:usesWindowSystem ex:1_WEST_WINDOW_SYSTEM .
+
+ex:1_WEST_WINDOW_SYSTEM a bem:WindowSystem ;
+    bem:frameArea 2.3e+01 ;
+    bem:frameUValue 1e+00 ;
+    bem:glazingType "Double Clear Air 2-panes" ;
+    bem:shadingType "OUTSIDE-BLIND" .
+
